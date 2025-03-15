@@ -1,0 +1,18 @@
+  alter table emp ;
+create table emp (
+id int primary key auto_increment,
+name varchar (20) not null,
+dept varchar (23),
+salary decimal (10,2)
+);
+
+insert into emp (id , name , dept , salary )
+values 
+(1 , 'shumaila' , 'cs' , 12343),
+(2 , 'nazeer' , 'ss' , 12348),
+(3 , 'aloi' , 'se' , 12347) ,
+(4 , 'subahan' , 'it' , 12346),
+(5 , 'nabeel' , 'bba' , 12345)
+;
+
+select * from emp ;
