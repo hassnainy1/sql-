@@ -1,0 +1,25 @@
+CREATE DATABASE emp;
+USE emp; 
+CREATE TABLE emp1 (
+    emp_id INT PRIMARY KEY AUTO_INCREMENT,
+    em_name VARCHAR(50) NOT NULL,
+    department VARCHAR(50),
+    salary DECIMAL(10,2)
+);
+
+INSERT INTO emp1 (em_name, department, salary)
+VALUES 
+    ('hassnain', 'SE', 54000),
+    ('shiv', 'SE', 54000),
+    ('nazeer', 'SE', 54000),
+    ('saqib', 'SE', 54000),
+    ('saifi', 'SE', 54000);
+
+SELECT * FROM emp1;  
+SELECT * FROM emp1 WHERE department = "IT";
+select * from  emp1 where salary > 5788;
+select * from emp1 order by salary desc; 
+select * from emp1 order by salary asc; 
+SELECT DISTINCT department FROM emp1;
+
+select * from emp1 limit 5 offset 0;
