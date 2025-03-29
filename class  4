@@ -1,0 +1,31 @@
+CREATE database joins ;
+use joins; 
+create table customer ( 
+  id int primary key , 
+  name varchar (50)
+  );
+  create table orders (
+  order_id int primary key ,
+  id int ,
+  order_date  date ,
+  foreign key (id) references customer(id)
+  );
+  INSERT INTO customer (id, name) VALUES
+(1, 'Alice'),    -- Has a matching order
+(2, 'Bob'),      -- Has a matching order
+(3, 'Charlie'),  -- No orders (LEFT JOIN effect)
+(4, 'David');    -- No orders (LEFT JOIN effect)
+
+-- Orders Table
+INSERT INTO orders (order_id, id, order_date) VALUES
+(101, 1, '2024-01-10'),  -- Matches Alice
+(102, 2, '2024-02-15'),  -- Matches Bob
+(103, 1, '2024-03-20'),  -- No matching customer (RIGHT JOIN effect)
+(104, NULL, '2024-03-22'); -- NULL customer (FULL JOIN effect)
+select *from customer;
+select * from orders;
+select * from customer AS c inner join orders as o on c.id = o.id ;
+ 
+select * from customer AS c RIGHT join orders as o on c.id = o.id 
+union
+select * from customer AS c left join orders as o on c.id = o.id 
